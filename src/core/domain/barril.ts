@@ -8,4 +8,5 @@ export interface Barril {
 	valorLocacao: number;
 	valorCaucao: number;
 	status: StatusBarril;
+	cliente: number | null
 }

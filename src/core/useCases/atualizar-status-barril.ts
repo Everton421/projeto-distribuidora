@@ -1,19 +1,22 @@
-import { type StatusBarril } from '../domain/barril';
-import { type IBarrilRepository } from '../ports/barril-repository';
-import { fail, ok, type Result } from '../shared/result';
+import { type Barril } from "../domain/barril";
+import { type IBarrilRepository } from "../ports/barril-repository";
+import { fail, ok } from "../shared/result";
 
-export class AtualizarStatusBarril {
-	constructor(private readonly barrilRepository: IBarrilRepository) {}
+ export class AtualizarBarril{
+    
+    constructor( private readonly repository: IBarrilRepository){}
 
-	async atualizar(id: number, status: StatusBarril): Promise<Result<null>> {
-		const barril = await this.barrilRepository.consultaPorId(id);
-
-		if (!barril) {
-			return fail('Barril não encontrado.');
-		}
-
-		await this.barrilRepository.atualizar({ ...barril, status });
-
-		return ok(null);
-	}
-}
+    async atualizar(barril: Barril){
+        const validarExistenciaDoBarril = await this.repository.consultaPorId(barril.id);
+        if(validarExistenciaDoBarril){
+            const resultadoAtualizaçãoBarril = await this.repository.atualizar( barril ); 
+            if( resultadoAtualizaçãoBarril > 0 ){
+                    return ok(barril);
+                }else{
+                    return fail(`Erro ao tentar atualizar barril ${barril.id}.`);
+            }
+        } else{
+            return fail(`Barril id ${barril.id} não foi encontrado.`);
+        }
+    }
+ }
