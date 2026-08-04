@@ -1,11 +1,11 @@
-import { EnderecoCliente } from "../domain/endereco-cliente";
-import { type IEnderecoRepository } from "../ports/endereco-repository";
+import { type CustomerAddres } from "../domain/customer-addres";
+import { type CustomerAddresRepository } from "../ports/customer-addres-repository";
 import { fail, ok } from "../shared/result";
 
 export class CadastrarEnderecoCliente{
-    constructor( private readonly repository: IEnderecoRepository){}
+    constructor( private readonly repository: CustomerAddresRepository){}
    
-    async cadastrar(endereco: EnderecoCliente){
+    async cadastrar(endereco: CustomerAddres){
 
             const resultadoCadastroCliente = await this.repository.cadastrar(endereco);
 

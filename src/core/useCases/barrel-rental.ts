@@ -1,9 +1,9 @@
-import { type IBarrilRepository } from "../ports/barril-repository";
+import { BarrelRepository } from "../ports/barrel-repository";
 import { fail, ok } from "../shared/result";
 
  
  export class BarrelRental{
-    constructor( private readonly repostory:IBarrilRepository){}
+    constructor( private readonly repostory:BarrelRepository){}
 
     async rent(id:number, codigoCliente: number) {
         

@@ -1,12 +1,12 @@
-import { type Barril } from "../domain/barril";
-import { type IBarrilRepository } from "../ports/barril-repository";
+import { Barrel } from "../domain/barrel";
+import { BarrelRepository } from "../ports/barrel-repository";
 import { fail, ok } from "../shared/result";
 
  export class UpdateBarrel{
     
-    constructor( private readonly repository: IBarrilRepository){}
+    constructor( private readonly repository: BarrelRepository){}
 
-    async atualizar(barrel: Barril){
+    async atualizar(barrel: Barrel){
         const verifyExistsBarrel = await this.repository.consultaPorId(barrel.id);
 
         if(verifyExistsBarrel){

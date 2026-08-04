@@ -1,11 +1,11 @@
-import { type Cliente } from "../domain/cliente";
-import { type IClienteRepository } from "../ports/cliente-repository";
+import { Customer } from "../domain/customer";
+import { CustomerRepository } from "../ports/customer-repository";
 
 export class UpdateCustomer{
     
-    constructor (private readonly repository:  IClienteRepository){}
+    constructor (private readonly repository: CustomerRepository){}
         
-    async atualizar(customer: Cliente){
+    async atualizar(customer: Customer){
         const verifyExistsCustomer =  await this.repository.pesquisarPorId(customer.id);
                 if(verifyExistsCustomer){
                         const resultUpdateCliente = await this.repository.atualizar(customer);

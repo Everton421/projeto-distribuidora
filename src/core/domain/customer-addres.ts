@@ -1,4 +1,4 @@
-export interface EnderecoCliente {
+export interface CustomerAddres {
 	rua: string;
 	id:number;
 	bairro: string;

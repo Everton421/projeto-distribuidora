@@ -1,17 +1,17 @@
-import { type Barril } from "../domain/barril";
-import { type IBarrilRepository } from "../ports/barril-repository";
+import { type Barrel } from "../domain/barrel";
+import { BarrelRepository } from "../ports/barrel-repository";
 import { fail, ok } from "../shared/result";
 
- export class CadastrarBarril{
+ export class CreateBarrel{
 	
-	constructor( private readonly repository: IBarrilRepository ){}
+	constructor( private readonly repository: BarrelRepository ){}
 	
-	async cadastrar(barril: Omit<Barril, 'id'>){
-		const resultadoCadastroBarril = await this.repository.cadastrar(barril);
-		if(resultadoCadastroBarril > 0 ){
-			 return	ok( { ...barril, id: resultadoCadastroBarril }) ;
+	async cadastrar(Barrel: Omit<Barrel, 'id'>){
+		const resultadoCadastroBarrel = await this.repository.cadastrar(Barrel);
+		if(resultadoCadastroBarrel > 0 ){
+			 return	ok( { ...Barrel, id: resultadoCadastroBarrel }) ;
 		}else{
-			return fail(`Ocorreu um erro ao tentar registrar o barril ${barril.descricao}.`)
+			return fail(`Ocorreu um erro ao tentar registrar o Barrel ${Barrel.descricao}.`)
 		}
 	}
  }

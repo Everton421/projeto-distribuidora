@@ -1,6 +1,6 @@
 export type StatusBarril = 'DISPONIVEL' | 'ALUGADO' | 'EM_MANUTENCAO' | 'EXTRAVIADO';
 
-export interface Barril {
+export interface Barrel {
 	id: number;
 	codigoPatrimonio: string | null;
 	descricao: string;
