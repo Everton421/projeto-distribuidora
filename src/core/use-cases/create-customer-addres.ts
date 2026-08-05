@@ -7,7 +7,7 @@ export class CadastrarEnderecoCliente{
    
     async cadastrar(endereco: CustomerAddres){
 
-            const resultadoCadastroCliente = await this.repository.cadastrar(endereco);
+            const resultadoCadastroCliente = await this.repository.create(endereco);
 
             if(resultadoCadastroCliente ){
                 return ok({ ...endereco, id:resultadoCadastroCliente });

@@ -1,4 +1,4 @@
-export type StatusBarril = 'DISPONIVEL' | 'ALUGADO' | 'EM_MANUTENCAO' | 'EXTRAVIADO';
+export type StatusBarrel = 'DISPONIVEL' | 'ALUGADO' | 'EM_MANUTENCAO' | 'EXTRAVIADO';
 
 export interface Barrel {
 	id: number;
@@ -7,6 +7,6 @@ export interface Barrel {
 	capacidadeLitros: number;
 	valorLocacao: number;
 	valorCaucao: number;
-	status: StatusBarril;
+	status: StatusBarrel;
 	cliente: number | null
 }

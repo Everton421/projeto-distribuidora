@@ -7,11 +7,11 @@ import { fail, ok } from "../shared/result";
 
     async rent(id:number, codigoCliente: number) {
         
-        const resultVerifyExistsBarrel = await this.repostory.consultaPorId(id)
+        const resultVerifyExistsBarrel = await this.repostory.findById(id)
     
         if(resultVerifyExistsBarrel){
 
-            const resultBarrelAvailable = await this.repostory.consultaPersonalizada({ status:'DISPONIVEL', id })
+            const resultBarrelAvailable = await this.repostory.findByParams({ status:'DISPONIVEL', id })
             
             if(resultBarrelAvailable.length > 0 ){
                 const { status } = resultBarrelAvailable[0];
@@ -19,13 +19,13 @@ import { fail, ok } from "../shared/result";
                         return fail(`Barril id ${id} não esta disponivel!`);
                     }
 
-                    const resultUpdateBarrel = await this.repostory.atualizar({
+                    const resultUpdateBarrel = await this.repostory.update({
                                 status: 'ALUGADO',
                                 id,
                                 cliente: codigoCliente
                             })  
 
-                        const resulBarrelUpdated = await this.repostory.consultaPorId(id)
+                        const resulBarrelUpdated = await this.repostory.findById(id)
 
                     if(resulBarrelUpdated  ){
                         return ok(resulBarrelUpdated)

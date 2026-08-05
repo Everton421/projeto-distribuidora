@@ -7,7 +7,7 @@ import { fail, ok } from "../shared/result";
 	constructor( private readonly repository: BarrelRepository ){}
 	
 	async cadastrar(Barrel: Omit<Barrel, 'id'>){
-		const resultadoCadastroBarrel = await this.repository.cadastrar(Barrel);
+		const resultadoCadastroBarrel = await this.repository.create(Barrel);
 		if(resultadoCadastroBarrel > 0 ){
 			 return	ok( { ...Barrel, id: resultadoCadastroBarrel }) ;
 		}else{

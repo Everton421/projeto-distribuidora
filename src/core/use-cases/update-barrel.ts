@@ -6,11 +6,11 @@ import { fail, ok } from "../shared/result";
     
     constructor( private readonly repository: BarrelRepository){}
 
-    async atualizar(barrel: Barrel){
-        const verifyExistsBarrel = await this.repository.consultaPorId(barrel.id);
+    async update(barrel: Barrel){
+        const verifyExistsBarrel = await this.repository.findById(barrel.id);
 
         if(verifyExistsBarrel){
-            const resultUpdateBarrel = await this.repository.atualizar( barrel ); 
+            const resultUpdateBarrel = await this.repository.update( barrel ); 
             if( resultUpdateBarrel > 0 ){
                     return ok(barrel);
                 }else{
