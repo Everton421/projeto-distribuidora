@@ -1,6 +1,6 @@
-import { type CustomerAddres } from "../domain/customer-addres";
-import { type CustomerAddresRepository } from "../ports/customer-addres-repository";
-import { fail, ok } from "../shared/result";
+import { type CustomerAddres } from "../domain/customer-addres.ts";
+import { type CustomerAddresRepository } from "../ports/customer-addres-repository.ts";
+import { fail, ok } from "../shared/result.ts";
 
 export class CadastrarEnderecoCliente{
     constructor( private readonly repository: CustomerAddresRepository){}

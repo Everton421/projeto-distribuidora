@@ -1,4 +1,4 @@
-import { type CustomerAddres } from "./customer-addres";
+import { type CustomerAddres } from "./customer-addres.ts";
 
 export interface Customer {
 	id: number;

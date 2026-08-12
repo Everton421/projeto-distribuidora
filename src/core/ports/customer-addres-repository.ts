@@ -1,4 +1,4 @@
-import { CustomerAddres } from "../domain/customer-addres";
+import { CustomerAddres } from "../domain/customer-addres.ts";
 
 export interface CustomerAddresRepository{
     create( endereco: CustomerAddres):Promise<number>

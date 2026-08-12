@@ -1,6 +1,6 @@
-import { Customer } from "../domain/customer";
-import { CustomerRepository } from "../ports/customer-repository";
-import { fail, ok } from "../shared/result";
+import { Customer } from "../domain/customer.ts";
+import { CustomerRepository } from "../ports/customer-repository.ts";
+import { fail, ok } from "../shared/result.ts";
 
 export class UpdateCustomer{
     

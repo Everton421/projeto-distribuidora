@@ -1,9 +1,35 @@
-import { FindBarrelByIdUseCases } from "../../../core/use-cases/find-barrel-by-id";
+import type { Request, Response } from 'express';
+import { BarrelUseCases } from '../../../core/use-cases/barrel-use-cases.ts';
+ 
 
 export class BarrelController    {
 
-    async findById( id: number ){
+    barrelUseCases: BarrelUseCases
+
+    constructor(barrelUseCases: BarrelUseCases){
+        this.barrelUseCases  =barrelUseCases;
     }
-     
+
+    async create( req:Request , res: Response){
+        const barrel = req.body;
+        console.log(barrel);
+
+      //  return this.barrelUseCases.create(barrel);
+    }
+
+    async findById( req:Request , res: Response){
+        const id = Number(req.params.id );
+        if( !id){
+            return res.status(400).json({ success:false, message: `Param Id is required!`})
+        }   
+
+        if( isNaN(id) ){
+            return res.status(400).json({ success:false, message: `The provided Id is not a number!`})
+        }
+        
+        const result = await  this.barrelUseCases.findById(id);
+
+        return res.status(200).json(result);
+    }
     
 }

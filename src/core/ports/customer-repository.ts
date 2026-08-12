@@ -1,4 +1,4 @@
-import { type Customer} from '../domain/customer';
+import { type Customer} from '../domain/customer.ts';
 
 export interface CustomerRepository {
 	create(cliente: Omit<Customer, 'id'>): Promise<number>;

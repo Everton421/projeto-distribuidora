@@ -1,6 +1,6 @@
-import { type Customer } from '../domain/customer';
-import {type CustomerRepository } from '../ports/customer-repository';
-import { fail, ok, type Result } from '../shared/result';
+import { type Customer } from '../domain/customer.ts';
+import {type CustomerRepository } from '../ports/customer-repository.ts';
+import { fail, ok, type Result } from '../shared/result.ts';
 
 export class CreateCustomer {
 	constructor(private readonly clienteRepository: CustomerRepository) {}

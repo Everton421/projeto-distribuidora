@@ -1,4 +1,4 @@
-import { type Barrel } from "../domain/barrel";
+import { type Barrel } from "../domain/barrel.ts";
 
 export interface BarrelRepository {
 	findById(id: number): Promise<Barrel | null>;
