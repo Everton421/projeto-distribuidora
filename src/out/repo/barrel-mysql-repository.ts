@@ -18,7 +18,7 @@ export class BarrelMysqlRepository implements BarrelRepository{
 
        async create(Barrel: Omit<Barrel, "id">): Promise<number> {
             
-                const  sql = ` INSERT INTO barrel 
+                const  sql = ` INSERT INTO barrels SET
                     codigopatrimonio = ?,
                     descricao = ?,
                     capacidadeLitros = ?,

@@ -12,9 +12,8 @@ export class BarrelController    {
 
     async create( req:Request , res: Response){
         const barrel = req.body;
-        console.log(barrel);
-
-      //  return this.barrelUseCases.create(barrel);
+       const resultCreate =  await this.barrelUseCases.create(barrel);
+        return res.status(201).json(resultCreate.data);
     }
 
     async findById( req:Request , res: Response){
